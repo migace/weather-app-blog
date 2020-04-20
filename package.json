@@ -1,0 +1,19 @@
+{
+  "name": "weather-app-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/migace/weather-app-blog.git",
+  "author": "Michał Gacek <gacek.michael@outlook.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "yarn parcel index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-alpha.3.2"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
