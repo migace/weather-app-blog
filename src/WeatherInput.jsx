@@ -12,7 +12,7 @@ export const WeatherInput = ({ searchHandler, searchText = "" }) => {
                 placeholder="Enter city name, i.e. Warsaw"
             />
             {searchHandler && (
-                <button onClick={(e) => searchHandler(e.target.value)}>
+                <button onClick={() => searchHandler(inputValue)}>
                     {searchText}
                 </button>
             )}
