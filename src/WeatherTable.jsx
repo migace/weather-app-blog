@@ -1,33 +1,50 @@
 import PropTypes from "prop-types";
 import React from "react";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 
 export const WeatherTable = ({ forecast }) => (
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>State</th>
-                <th>Abbr</th>
-                <th>Wind speed</th>
-                <th>Air pressure</th>
-                <th>Humidity</th>
-                <th>Predictability</th>
-            </tr>
-        </thead>
-        <tbody>
-            {forecast.map((day) => (
-                <tr key={day.id}>
-                    <td>{day.applicable_date}</td>
-                    <td>{day.weather_state_name}</td>
-                    <td>{day.weather_state_abbr}</td>
-                    <td>{day.wind_speed}</td>
-                    <td>{day.air_pressure}</td>
-                    <td>{day.humidity}</td>
-                    <td>{day.predictability}</td>
-                </tr>
-            ))}
-        </tbody>
-    </table>
+    <TableContainer component={Paper}>
+        <Table aria-label="forecast">
+            <TableHead>
+                <TableRow>
+                    <TableCell>Date</TableCell>
+                    <TableCell align="right">State</TableCell>
+                    <TableCell align="right">Abbr</TableCell>
+                    <TableCell align="right">Wind speed</TableCell>
+                    <TableCell align="right">Air pressure</TableCell>
+                    <TableCell align="right">Humidity</TableCell>
+                    <TableCell align="right">Predictability</TableCell>
+                </TableRow>
+            </TableHead>
+            <TableBody>
+                {forecast.map((day) => (
+                    <TableRow key={day.id}>
+                        <TableCell component="th" scope="row">
+                            {day.applicable_date}
+                        </TableCell>
+                        <TableCell align="right">
+                            {day.weather_state_name}
+                        </TableCell>
+                        <TableCell align="right">
+                            {day.weather_state_abbr}
+                        </TableCell>
+                        <TableCell align="right">{day.wind_speed}</TableCell>
+                        <TableCell align="right">{day.air_pressure}</TableCell>
+                        <TableCell align="right">{day.humidity}</TableCell>
+                        <TableCell align="right">
+                            {day.predictability}
+                        </TableCell>
+                    </TableRow>
+                ))}
+            </TableBody>
+        </Table>
+    </TableContainer>
 );
 
 WeatherTable.propTypes = {
